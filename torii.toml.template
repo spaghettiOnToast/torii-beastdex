@@ -14,9 +14,6 @@ all_model_indices = false
 
 [indexing]
 pending = true
-contracts = [
-  "erc721:0x046da8955829adf2bda310099a0063451923f02e648cf25a1203aac6335cf0e4",
-]
 world_block = 2152900
 transactions = true
 
