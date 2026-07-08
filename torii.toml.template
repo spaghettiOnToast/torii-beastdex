@@ -1,0 +1,76 @@
+world_address = "0x07a079295990e43441a7389fdc3b9ba063c6cd6aee16fb846f598c42a9f04ff7"
+rpc = "https://api.cartridge.gg/x/starknet/mainnet"
+
+[server]
+http_addr = "0.0.0.0"
+http_port = ${PORT}
+http_cors_origins = ["*"]
+
+[events]
+raw = true
+
+[sql]
+all_model_indices = false
+
+[indexing]
+pending = true
+contracts = [
+  "erc721:0x046da8955829adf2bda310099a0063451923f02e648cf25a1203aac6335cf0e4",
+]
+world_block = 2152900
+transactions = true
+
+[erc]
+async_metadata_updates = true
+
+[[sql.model_indices]]
+model_tag = "ARCADE-Listing"
+fields = ["collection", "status", "category"]
+
+[[sql.model_indices]]
+model_tag = "ARCADE-Listing"
+fields = ["collection", "token_id", "status", "category"]
+
+[[sql.model_indices]]
+model_tag = "ARCADE-Listing"
+fields = ["time"]
+
+[[sql.model_indices]]
+model_tag = "ARCADE-Offer"
+fields = ["owner", "category"]
+
+[[sql.model_indices]]
+model_tag = "ARCADE-Offer"
+fields = ["collection", "category", "status"]
+
+[[sql.model_indices]]
+model_tag = "ARCADE-Offer"
+fields = ["collection", "token_id", "category", "status"]
+
+[[sql.model_indices]]
+model_tag = "ARCADE-Offer"
+fields = ["time"]
+
+[[sql.model_indices]]
+model_tag = "ARCADE-Sale"
+fields = ["from"]
+
+[[sql.model_indices]]
+model_tag = "ARCADE-Sale"
+fields = ["to"]
+
+[[sql.model_indices]]
+model_tag = "ARCADE-Sale"
+fields = ["order.collection"]
+
+[[sql.model_indices]]
+model_tag = "ARCADE-Sale"
+fields = ["order.collection", "order.token_id"]
+
+[[sql.model_indices]]
+model_tag = "ARCADE-Sale"
+fields = ["time"]
+
+[[sql.model_indices]]
+model_tag = "token_balances"
+fields = ["contract_address", "balance"]
