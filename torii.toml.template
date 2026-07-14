@@ -7,15 +7,15 @@ http_port = ${PORT}
 http_cors_origins = ["*"]
 
 [events]
-raw = true
+raw = false
 
 [sql]
 all_model_indices = false
 
 [indexing]
 pending = true
-world_block = 2152900
-transactions = true
+world_block = 0
+transactions = false
 
 [[sql.model_indices]]
 model_tag = "ARCADE-Listing"
@@ -64,7 +64,3 @@ fields = ["order.collection", "order.token_id"]
 [[sql.model_indices]]
 model_tag = "ARCADE-Sale"
 fields = ["time"]
-
-[[sql.model_indices]]
-model_tag = "token_balances"
-fields = ["contract_address", "balance"]
