@@ -14,19 +14,16 @@ all_model_indices = false
 
 [indexing]
 pending = true
-world_block = 2200000
+# WORLD contract deployed at block 2407079 (confirmed via RPC binary search);
+# no ERC721 contracts tracked here anymore so there's no earlier history to
+# capture — safe to start right before the world's own deployment.
+world_block = 2400000
 transactions = false
 external_contracts = false
 namespaces = ["ARCADE"]
-contracts = [
-  "erc721:0x046da8955829adf2bda310099a0063451923f02e648cf25a1203aac6335cf0e4",
-]
-
-[erc]
-# Fetch NFT metadata in the background instead of blocking block processing —
-# without this, indexing throughput drops ~100x once it hits real Beast token
-# activity, since each metadata fetch is a synchronous HTTP call.
-async_metadata_updates = true
+# No `contracts` list: Beast NFT data (name/image/attributes) comes from the
+# @provable-games/collectables SDK in the app, joined by token_id against
+# ARCADE-Order — torii only needs to index the marketplace models themselves.
 
 [[sql.model_indices]]
 model_tag = "ARCADE-Listing"
