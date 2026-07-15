@@ -14,10 +14,13 @@ all_model_indices = false
 
 [indexing]
 pending = true
-world_block = 2400000
+world_block = 2200000
 transactions = false
 external_contracts = false
 namespaces = ["ARCADE"]
+contracts = [
+  "erc721:0x046da8955829adf2bda310099a0063451923f02e648cf25a1203aac6335cf0e4",
+]
 
 [[sql.model_indices]]
 model_tag = "ARCADE-Listing"
