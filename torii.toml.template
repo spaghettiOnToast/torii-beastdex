@@ -1,5 +1,8 @@
 world_address = "0x07a079295990e43441a7389fdc3b9ba063c6cd6aee16fb846f598c42a9f04ff7"
-rpc = "https://api.cartridge.gg/x/starknet/mainnet"
+# Cartridge's RPC now refuses unauthenticated requests ("Unauthorized"),
+# which stalled indexing at block 17,400,341 (2026-11-03). Provable's public
+# mainnet RPC (also used by lootsurvivor.io).
+rpc = "https://rpc.provable.games/rpc"
 
 [server]
 http_addr = "0.0.0.0"
@@ -13,7 +16,9 @@ raw = false
 all_model_indices = false
 
 [indexing]
-pending = true
+# Provable's RPC (spec 0.10) rejects the "pending" block tag, so index
+# confirmed blocks only.
+pending = false
 # WORLD contract deployed at block 2407079 (confirmed via RPC binary search);
 # no ERC721 contracts tracked here anymore so there's no earlier history to
 # capture — safe to start right before the world's own deployment.
